@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "418923696779",
+    "project_id": "streetsavers-815e1",
+    "storage_bucket": "streetsavers-815e1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:418923696779:android:d326dcae2da5a05f7cba8e",
+        "android_client_info": {
+          "package_name": "com.flutterflow.streetsavers"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "418923696779-g3lf9m8va9vrl38ocj77qber43vhm2p5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.flutterflow.streetsavers",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "418923696779-57kqro5ebtfr98rvnaggdarv8svu0jod.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0eSlLQNXE_kwh7N8OvSgnQoiIGYZ8VYI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "418923696779-57kqro5ebtfr98rvnaggdarv8svu0jod.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "418923696779-iro3vpll1oi9vcija5l3jmenovjltj3v.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.flutterflow.streetsavers"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

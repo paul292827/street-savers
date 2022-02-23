@@ -1,4 +1,4 @@
-package com.example.street_savers
+package com.flutterflow.streetsavers
 
 import io.flutter.embedding.android.FlutterActivity
 

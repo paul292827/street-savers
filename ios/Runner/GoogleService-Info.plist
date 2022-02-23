@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>418923696779-iro3vpll1oi9vcija5l3jmenovjltj3v.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.418923696779-iro3vpll1oi9vcija5l3jmenovjltj3v</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>418923696779-g3lf9m8va9vrl38ocj77qber43vhm2p5.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDvy7qMunZRdlBvht_MA1VwVrN2t8WBGhg</string>
+	<key>GCM_SENDER_ID</key>
+	<string>418923696779</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.flutterflow.streetsavers</string>
+	<key>PROJECT_ID</key>
+	<string>streetsavers-815e1</string>
+	<key>STORAGE_BUCKET</key>
+	<string>streetsavers-815e1.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:418923696779:ios:710b56f78095a91a7cba8e</string>
+</dict>
+</plist>
