@@ -28,7 +28,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                 width: MediaQuery.of(context).size.width,
                 height: 108,
                 decoration: BoxDecoration(
-                  color: Color(0xFF6E983B),
+                  color: Color(0xFF5A7E30),
                 ),
                 child: Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
@@ -62,7 +62,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                           width: 50,
                           height: 50,
                           child: CircularProgressIndicator(
-                            color: FlutterFlowTheme.of(context).primaryColor,
+                            color: Colors.white,
                           ),
                         ),
                       );

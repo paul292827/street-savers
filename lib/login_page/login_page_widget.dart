@@ -236,13 +236,12 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                     return;
                                   }
 
-                                  await Navigator.pushAndRemoveUntil(
+                                  await Navigator.push(
                                     context,
                                     MaterialPageRoute(
                                       builder: (context) =>
                                           NavBarPage(initialPage: 'HomePage'),
                                     ),
-                                    (r) => false,
                                   );
                                 },
                                 text: 'Sign in',

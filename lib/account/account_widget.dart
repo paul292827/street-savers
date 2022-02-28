@@ -1,5 +1,5 @@
 import '../about_us/about_us_widget.dart';
-import '../auth/auth_util.dart';
+import '../backend/backend.dart';
 import '../contact_us/contact_us_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
@@ -11,7 +11,12 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AccountWidget extends StatefulWidget {
-  const AccountWidget({Key key}) : super(key: key);
+  const AccountWidget({
+    Key key,
+    this.user,
+  }) : super(key: key);
+
+  final UsersRecord user;
 
   @override
   _AccountWidgetState createState() => _AccountWidgetState();
@@ -73,7 +78,7 @@ class _AccountWidgetState extends State<AccountWidget> {
                               children: [
                                 Text(
                                   valueOrDefault<String>(
-                                    currentUserEmail,
+                                    widget.user.email,
                                     'User',
                                   ),
                                   style: FlutterFlowTheme.of(context)
