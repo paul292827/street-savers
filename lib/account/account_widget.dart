@@ -37,7 +37,7 @@ class _AccountWidgetState extends State<AccountWidget> {
           child: Text(
             'Profile',
             style: FlutterFlowTheme.of(context).title2.override(
-                  fontFamily: 'Outfit',
+                  fontFamily: 'Poppins',
                   color: Colors.white,
                   fontSize: 28,
                   fontWeight: FontWeight.w500,
@@ -84,7 +84,7 @@ class _AccountWidgetState extends State<AccountWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .title3
                                       .override(
-                                        fontFamily: 'Outfit',
+                                        fontFamily: 'Roboto',
                                         color: Colors.white,
                                         fontSize: 24,
                                         fontWeight: FontWeight.w500,
@@ -165,7 +165,7 @@ class _AccountWidgetState extends State<AccountWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyText2
                                       .override(
-                                        fontFamily: 'Outfit',
+                                        fontFamily: 'Roboto',
                                         color: Colors.white,
                                         fontSize: 14,
                                         fontWeight: FontWeight.normal,
@@ -227,7 +227,7 @@ class _AccountWidgetState extends State<AccountWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyText2
                                       .override(
-                                        fontFamily: 'Outfit',
+                                        fontFamily: 'Roboto',
                                         color: Colors.white,
                                         fontSize: 14,
                                         fontWeight: FontWeight.normal,
@@ -289,7 +289,7 @@ class _AccountWidgetState extends State<AccountWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyText2
                                       .override(
-                                        fontFamily: 'Outfit',
+                                        fontFamily: 'Roboto',
                                         color: Colors.white,
                                         fontSize: 14,
                                         fontWeight: FontWeight.normal,
@@ -351,7 +351,7 @@ class _AccountWidgetState extends State<AccountWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyText2
                                       .override(
-                                        fontFamily: 'Outfit',
+                                        fontFamily: 'Roboto',
                                         color: Colors.white,
                                         fontSize: 14,
                                         fontWeight: FontWeight.normal,
