@@ -144,10 +144,7 @@ class _LeaderboardWidgetState extends State<LeaderboardWidget> {
                                                 alignment: AlignmentDirectional(
                                                     0.75, 0),
                                                 child: Text(
-                                                  valueOrDefault<String>(
-                                                    columnIndex.toString(),
-                                                    '1st',
-                                                  ),
+                                                  columnIndex.toString(),
                                                   textAlign: TextAlign.end,
                                                   style: FlutterFlowTheme.of(
                                                           context)
