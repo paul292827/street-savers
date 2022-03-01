@@ -28,6 +28,9 @@ abstract class UsersRecord implements Built<UsersRecord, UsersRecordBuilder> {
   DateTime get createdTime;
 
   @nullable
+  BuiltList<DocumentReference> get history;
+
+  @nullable
   @BuiltValueField(wireName: 'phone_number')
   String get phoneNumber;
 
@@ -40,6 +43,7 @@ abstract class UsersRecord implements Built<UsersRecord, UsersRecordBuilder> {
     ..displayName = ''
     ..uid = ''
     ..photoUrl = ''
+    ..history = ListBuilder()
     ..phoneNumber = '';
 
   static CollectionReference get collection =>
@@ -79,4 +83,5 @@ Map<String, dynamic> createUsersRecordData({
           ..uid = uid
           ..photoUrl = photoUrl
           ..createdTime = createdTime
+          ..history = null
           ..phoneNumber = phoneNumber));

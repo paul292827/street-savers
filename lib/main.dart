@@ -12,8 +12,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'home_page/home_page_widget.dart';
-import 'leader_board/leader_board_widget.dart';
 import 'history/history_widget.dart';
+import 'leaderboard/leaderboard_widget.dart';
 import 'account/account_widget.dart';
 
 void main() async {
@@ -118,8 +118,8 @@ class _NavBarPageState extends State<NavBarPage> {
   Widget build(BuildContext context) {
     final tabs = {
       'HomePage': HomePageWidget(),
-      'LeaderBoard': LeaderBoardWidget(),
       'History': HistoryWidget(),
+      'Leaderboard': LeaderboardWidget(),
       'Account': AccountWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPage);
@@ -149,18 +149,6 @@ class _NavBarPageState extends State<NavBarPage> {
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.leaderboard_outlined,
-              size: 24,
-            ),
-            activeIcon: Icon(
-              Icons.leaderboard_rounded,
-              size: 32,
-            ),
-            label: 'Leaderboard',
-            tooltip: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
               Icons.store_outlined,
               size: 24,
             ),
@@ -169,6 +157,18 @@ class _NavBarPageState extends State<NavBarPage> {
               size: 32,
             ),
             label: 'History',
+            tooltip: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.leaderboard_outlined,
+              size: 24,
+            ),
+            activeIcon: Icon(
+              Icons.leaderboard_rounded,
+              size: 32,
+            ),
+            label: 'Leaderboard',
             tooltip: '',
           ),
           BottomNavigationBarItem(

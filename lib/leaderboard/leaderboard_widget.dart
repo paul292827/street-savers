@@ -4,14 +4,14 @@ import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class HistoryWidget extends StatefulWidget {
-  const HistoryWidget({Key key}) : super(key: key);
+class LeaderboardWidget extends StatefulWidget {
+  const LeaderboardWidget({Key key}) : super(key: key);
 
   @override
-  _HistoryWidgetState createState() => _HistoryWidgetState();
+  _LeaderboardWidgetState createState() => _LeaderboardWidgetState();
 }
 
-class _HistoryWidgetState extends State<HistoryWidget> {
+class _LeaderboardWidgetState extends State<LeaderboardWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -37,7 +37,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        'History',
+                        'Leaderboard',
                         style: FlutterFlowTheme.of(context).bodyText1.override(
                               fontFamily: 'Poppins',
                               color: Colors.white,
@@ -97,7 +97,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                                               borderRadius:
                                                   BorderRadius.circular(8),
                                               child: Image.asset(
-                                                'assets/images/imageList@2x.png',
+                                                'assets/images/App_Logo.png',
                                                 width: 74,
                                                 height: 74,
                                                 fit: BoxFit.cover,
@@ -120,10 +120,11 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
                                                   Text(
-                                                    columnUsersRecord.history
-                                                        .toList()
-                                                        .length
-                                                        .toString(),
+                                                    valueOrDefault<String>(
+                                                      columnUsersRecord
+                                                          .displayName,
+                                                      'Username',
+                                                    ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .subtitle1
@@ -139,28 +140,28 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                                                   ),
                                                 ],
                                               ),
-                                              Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                children: [
-                                                  Text(
-                                                    columnUsersRecord.history
-                                                        .toList()
-                                                        .length
-                                                        .toString(),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyText2
-                                                        .override(
-                                                          fontFamily:
-                                                              'Lexend Deca',
-                                                          color:
-                                                              Color(0xFF8B97A2),
-                                                          fontSize: 14,
-                                                          fontWeight:
-                                                              FontWeight.normal,
-                                                        ),
+                                              Align(
+                                                alignment: AlignmentDirectional(
+                                                    0.75, 0),
+                                                child: Text(
+                                                  valueOrDefault<String>(
+                                                    columnIndex.toString(),
+                                                    '1st',
                                                   ),
-                                                ],
+                                                  textAlign: TextAlign.end,
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyText2
+                                                      .override(
+                                                        fontFamily:
+                                                            'Lexend Deca',
+                                                        color:
+                                                            Color(0xFF8B97A2),
+                                                        fontSize: 24,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                      ),
+                                                ),
                                               ),
                                             ],
                                           ),

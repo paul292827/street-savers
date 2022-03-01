@@ -59,7 +59,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                   : null;
               return FlutterFlowGoogleMap(
                 controller: googleMapsController,
-                onCameraIdle: (latLng) => googleMapsCenter = latLng,
+                onCameraIdle: (latLng) =>
+                    setState(() => googleMapsCenter = latLng),
                 initialLocation: googleMapsCenter ??=
                     LatLng(53.342633, -6.259573),
                 markers: [
