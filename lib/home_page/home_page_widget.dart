@@ -1,4 +1,5 @@
 import '../backend/backend.dart';
+import '../components/door_open_widget.dart';
 import '../flutter_flow/flutter_flow_google_map.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
@@ -74,12 +75,30 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     onCameraIdle: (latLng) =>
                         setState(() => googleMapsCenter = latLng),
                     initialLocation: googleMapsCenter ??=
-                        LatLng(53.342633, -6.259573),
+                        LatLng(53.3432, -6.2594),
                     markers: (homePageShopsRecordList ?? [])
                         .map(
                           (homePageShopsRecord) => FlutterFlowMarker(
                             homePageShopsRecord.reference.path,
                             homePageShopsRecord.location,
+                            () async {
+                              await showModalBottomSheet(
+                                isScrollControlled: true,
+                                backgroundColor: Colors.transparent,
+                                context: context,
+                                builder: (context) {
+                                  return Padding(
+                                    padding: MediaQuery.of(context).viewInsets,
+                                    child: Container(
+                                      height: 200,
+                                      child: DoorOpenWidget(
+                                        shop: googleMapShopsRecord,
+                                      ),
+                                    ),
+                                  );
+                                },
+                              );
+                            },
                           ),
                         )
                         .toList(),
