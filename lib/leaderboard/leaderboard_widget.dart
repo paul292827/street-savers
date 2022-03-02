@@ -99,11 +99,8 @@ class _LeaderboardWidgetState extends State<LeaderboardWidget> {
                                             child: ClipRRect(
                                               borderRadius:
                                                   BorderRadius.circular(8),
-                                              child: Image.network(
-                                                valueOrDefault<String>(
-                                                  columnUsersRecord.photoUrl,
-                                                  'https://images.app.goo.gl/1PqNjMtktrHo8eYc9',
-                                                ),
+                                              child: Image.asset(
+                                                'assets/images/150-1503945_transparent-user-png-default-user-image-png-png.png',
                                                 width: 74,
                                                 height: 74,
                                                 fit: BoxFit.cover,

@@ -4,7 +4,7 @@ import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../main.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class LoginPageWidget extends StatefulWidget {
@@ -311,214 +311,129 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      Align(
-                                        alignment: AlignmentDirectional(0, 0),
-                                        child: Container(
-                                          width: 250,
-                                          height: 44,
-                                          child: Stack(
-                                            children: [
-                                              Align(
-                                                alignment:
-                                                    AlignmentDirectional(0, 0),
-                                                child: FFButtonWidget(
-                                                  onPressed: () {
-                                                    print('Button pressed ...');
-                                                  },
-                                                  text: 'Sign in with Facebook',
-                                                  icon: Icon(
-                                                    Icons.add,
-                                                    color: Colors.transparent,
-                                                    size: 20,
-                                                  ),
-                                                  options: FFButtonOptions(
-                                                    width: 250,
-                                                    height: 40,
-                                                    color: Color(0xFFB0D97F),
-                                                    textStyle:
-                                                        GoogleFonts.getFont(
-                                                      'Roboto',
-                                                      color: Colors.black,
-                                                      fontWeight:
-                                                          FontWeight.w500,
-                                                      fontSize: 17,
-                                                    ),
-                                                    elevation: 4,
-                                                    borderSide: BorderSide(
-                                                      color: Colors.transparent,
-                                                      width: 0,
-                                                    ),
-                                                    borderRadius: 12,
-                                                  ),
-                                                ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0, 0, 8, 0),
+                                        child: Card(
+                                          clipBehavior:
+                                              Clip.antiAliasWithSaveLayer,
+                                          color: Color(0xFF090F13),
+                                          elevation: 3,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(50),
+                                          ),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    2, 2, 2, 2),
+                                            child: Container(
+                                              width: 50,
+                                              height: 50,
+                                              clipBehavior: Clip.antiAlias,
+                                              decoration: BoxDecoration(
+                                                shape: BoxShape.circle,
                                               ),
-                                              Align(
-                                                alignment: AlignmentDirectional(
-                                                    -0.83, 0),
-                                                child: Container(
-                                                  width: 22,
-                                                  height: 22,
-                                                  clipBehavior: Clip.antiAlias,
-                                                  decoration: BoxDecoration(
-                                                    shape: BoxShape.circle,
-                                                  ),
-                                                  child: Image.network(
-                                                    'https://facebookbrand.com/wp-content/uploads/2019/04/f_logo_RGB-Hex-Blue_512.png?w=512&h=512',
-                                                    fit: BoxFit.contain,
-                                                  ),
-                                                ),
+                                              child: SvgPicture.asset(
+                                                'assets/images/social_facebook.svg',
                                               ),
-                                            ],
+                                            ),
                                           ),
                                         ),
                                       ),
-                                    ],
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 10, 0, 10),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        isAndroid
-                                            ? Container()
-                                            : Align(
-                                                alignment:
-                                                    AlignmentDirectional(0, 0),
-                                                child: FFButtonWidget(
-                                                  onPressed: () async {
-                                                    final user =
-                                                        await signInWithApple(
-                                                            context);
-                                                    if (user == null) {
-                                                      return;
-                                                    }
-                                                    await Navigator
-                                                        .pushAndRemoveUntil(
-                                                      context,
-                                                      MaterialPageRoute(
-                                                        builder: (context) =>
-                                                            NavBarPage(
-                                                                initialPage:
-                                                                    'HomePage'),
-                                                      ),
-                                                      (r) => false,
-                                                    );
-                                                  },
-                                                  text: 'Sign in with Apple',
-                                                  icon: FaIcon(
-                                                    FontAwesomeIcons.apple,
-                                                    size: 20,
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0, 0, 8, 0),
+                                        child: Card(
+                                          clipBehavior:
+                                              Clip.antiAliasWithSaveLayer,
+                                          color: Color(0xFF090F13),
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(50),
+                                          ),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    2, 2, 2, 2),
+                                            child: InkWell(
+                                              onTap: () async {
+                                                final user =
+                                                    await signInWithGoogle(
+                                                        context);
+                                                if (user == null) {
+                                                  return;
+                                                }
+                                                await Navigator
+                                                    .pushAndRemoveUntil(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        NavBarPage(
+                                                            initialPage:
+                                                                'HomePage'),
                                                   ),
-                                                  options: FFButtonOptions(
-                                                    width: 230,
-                                                    height: 40,
-                                                    color: Color(0xFFB0D97F),
-                                                    textStyle:
-                                                        GoogleFonts.getFont(
-                                                      'Roboto',
-                                                      color: Colors.black,
-                                                      fontWeight:
-                                                          FontWeight.w500,
-                                                      fontSize: 17,
-                                                    ),
-                                                    elevation: 4,
-                                                    borderSide: BorderSide(
-                                                      color: Colors.transparent,
-                                                      width: 0,
-                                                    ),
-                                                    borderRadius: 12,
-                                                  ),
+                                                  (r) => false,
+                                                );
+                                              },
+                                              child: Container(
+                                                width: 50,
+                                                height: 50,
+                                                clipBehavior: Clip.antiAlias,
+                                                decoration: BoxDecoration(
+                                                  shape: BoxShape.circle,
+                                                ),
+                                                child: SvgPicture.asset(
+                                                  'assets/images/social_GoogleWhite.svg',
                                                 ),
                                               ),
-                                      ],
-                                    ),
-                                  ),
-                                  Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Align(
-                                        alignment: AlignmentDirectional(0, 0),
-                                        child: Container(
-                                          width: 230,
-                                          height: 44,
-                                          child: Stack(
-                                            children: [
-                                              Align(
-                                                alignment:
-                                                    AlignmentDirectional(0, 0),
-                                                child: FFButtonWidget(
-                                                  onPressed: () async {
-                                                    final user =
-                                                        await signInWithGoogle(
-                                                            context);
-                                                    if (user == null) {
-                                                      return;
-                                                    }
-                                                    await Navigator
-                                                        .pushAndRemoveUntil(
-                                                      context,
-                                                      MaterialPageRoute(
-                                                        builder: (context) =>
-                                                            NavBarPage(
-                                                                initialPage:
-                                                                    'HomePage'),
-                                                      ),
-                                                      (r) => false,
-                                                    );
-                                                  },
-                                                  text: 'Sign in with Google',
-                                                  icon: Icon(
-                                                    Icons.add,
-                                                    color: Colors.transparent,
-                                                    size: 20,
-                                                  ),
-                                                  options: FFButtonOptions(
-                                                    width: 230,
-                                                    height: 40,
-                                                    color: Color(0xFFB0D97F),
-                                                    textStyle:
-                                                        GoogleFonts.getFont(
-                                                      'Roboto',
-                                                      color: Colors.black,
-                                                      fontWeight:
-                                                          FontWeight.w500,
-                                                      fontSize: 17,
-                                                    ),
-                                                    elevation: 4,
-                                                    borderSide: BorderSide(
-                                                      color: Colors.transparent,
-                                                      width: 0,
-                                                    ),
-                                                    borderRadius: 12,
-                                                  ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      Card(
+                                        clipBehavior:
+                                            Clip.antiAliasWithSaveLayer,
+                                        color: Color(0xFF090F13),
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(50),
+                                        ),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  2, 2, 2, 2),
+                                          child: InkWell(
+                                            onTap: () async {
+                                              final user =
+                                                  await signInWithApple(
+                                                      context);
+                                              if (user == null) {
+                                                return;
+                                              }
+                                              await Navigator
+                                                  .pushAndRemoveUntil(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      NavBarPage(
+                                                          initialPage:
+                                                              'HomePage'),
                                                 ),
+                                                (r) => false,
+                                              );
+                                            },
+                                            child: Container(
+                                              width: 50,
+                                              height: 50,
+                                              clipBehavior: Clip.antiAlias,
+                                              decoration: BoxDecoration(
+                                                shape: BoxShape.circle,
                                               ),
-                                              Align(
-                                                alignment: AlignmentDirectional(
-                                                    -0.83, 0),
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(8, 0, 0, 0),
-                                                  child: Container(
-                                                    width: 22,
-                                                    height: 22,
-                                                    clipBehavior:
-                                                        Clip.antiAlias,
-                                                    decoration: BoxDecoration(
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Image.network(
-                                                      'https://i0.wp.com/nanophorm.com/wp-content/uploads/2018/04/google-logo-icon-PNG-Transparent-Background.png?w=1000&ssl=1',
-                                                      fit: BoxFit.contain,
-                                                    ),
-                                                  ),
-                                                ),
+                                              child: SvgPicture.asset(
+                                                'assets/images/social_Apple.svg',
                                               ),
-                                            ],
+                                            ),
                                           ),
                                         ),
                                       ),
