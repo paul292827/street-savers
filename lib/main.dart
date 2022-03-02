@@ -142,9 +142,9 @@ class _NavBarPageState extends State<NavBarPage> {
             ),
             activeIcon: FaIcon(
               FontAwesomeIcons.solidMap,
-              size: 32,
+              size: 24,
             ),
-            label: 'Map',
+            label: '',
             tooltip: '',
           ),
           BottomNavigationBarItem(
