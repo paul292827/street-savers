@@ -35,6 +35,9 @@ abstract class UsersRecord implements Built<UsersRecord, UsersRecordBuilder> {
   String get phoneNumber;
 
   @nullable
+  int get count;
+
+  @nullable
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference get reference;
 
@@ -44,7 +47,8 @@ abstract class UsersRecord implements Built<UsersRecord, UsersRecordBuilder> {
     ..uid = ''
     ..photoUrl = ''
     ..history = ListBuilder()
-    ..phoneNumber = '';
+    ..phoneNumber = ''
+    ..count = 0;
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('users');
@@ -74,6 +78,7 @@ Map<String, dynamic> createUsersRecordData({
   String photoUrl,
   DateTime createdTime,
   String phoneNumber,
+  int count,
 }) =>
     serializers.toFirestore(
         UsersRecord.serializer,
@@ -84,4 +89,5 @@ Map<String, dynamic> createUsersRecordData({
           ..photoUrl = photoUrl
           ..createdTime = createdTime
           ..history = null
-          ..phoneNumber = phoneNumber));
+          ..phoneNumber = phoneNumber
+          ..count = count));

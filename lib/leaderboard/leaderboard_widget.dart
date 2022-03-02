@@ -50,7 +50,10 @@ class _LeaderboardWidgetState extends State<LeaderboardWidget> {
               ),
               Expanded(
                 child: StreamBuilder<List<UsersRecord>>(
-                  stream: queryUsersRecord(),
+                  stream: queryUsersRecord(
+                    queryBuilder: (usersRecord) =>
+                        usersRecord.orderBy('count', descending: true),
+                  ),
                   builder: (context, snapshot) {
                     // Customize what your widget looks like when it's loading.
                     if (!snapshot.hasData) {
@@ -144,7 +147,11 @@ class _LeaderboardWidgetState extends State<LeaderboardWidget> {
                                                 alignment: AlignmentDirectional(
                                                     0.75, 0),
                                                 child: Text(
-                                                  columnIndex.toString(),
+                                                  valueOrDefault<String>(
+                                                    columnUsersRecord.count
+                                                        .toString(),
+                                                    '0',
+                                                  ),
                                                   textAlign: TextAlign.end,
                                                   style: FlutterFlowTheme.of(
                                                           context)

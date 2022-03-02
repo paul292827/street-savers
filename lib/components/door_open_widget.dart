@@ -21,7 +21,6 @@ class DoorOpenWidget extends StatefulWidget {
 
 class _DoorOpenWidgetState extends State<DoorOpenWidget> {
   ShopsRecord closed;
-  ShopsRecord open;
 
   @override
   Widget build(BuildContext context) {
@@ -94,7 +93,7 @@ class _DoorOpenWidgetState extends State<DoorOpenWidget> {
                                       0, 4, 16, 0),
                                   child: Text(
                                     valueOrDefault<String>(
-                                      widget.shop.name,
+                                      containerShopsRecord.name,
                                       'Shop',
                                     ),
                                     style: FlutterFlowTheme.of(context)
@@ -142,9 +141,8 @@ class _DoorOpenWidgetState extends State<DoorOpenWidget> {
                                 FFButtonWidget(
                                   onPressed: () async {
                                     Navigator.pop(context);
-                                    final shopsCreateData = {
-                                      'open_boolean': [false],
-                                    };
+                                    final shopsCreateData =
+                                        createShopsRecordData();
                                     final shopsRecordReference =
                                         ShopsRecord.collection.doc();
                                     await shopsRecordReference
@@ -178,17 +176,10 @@ class _DoorOpenWidgetState extends State<DoorOpenWidget> {
                                 FFButtonWidget(
                                   onPressed: () async {
                                     Navigator.pop(context);
-                                    final shopsCreateData = {
-                                      'open_boolean': [true],
-                                    };
-                                    final shopsRecordReference =
-                                        ShopsRecord.collection.doc();
-                                    await shopsRecordReference
-                                        .set(shopsCreateData);
-                                    open = ShopsRecord.getDocumentFromData(
-                                        shopsCreateData, shopsRecordReference);
-
-                                    setState(() {});
+                                    final shopsUpdateData =
+                                        createShopsRecordData();
+                                    await widget.shop.reference
+                                        .update(shopsUpdateData);
                                   },
                                   text: 'Open',
                                   options: FFButtonOptions(

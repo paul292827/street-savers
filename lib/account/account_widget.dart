@@ -1,4 +1,5 @@
 import '../about_us/about_us_widget.dart';
+import '../auth/auth_util.dart';
 import '../backend/backend.dart';
 import '../contact_us/contact_us_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
@@ -13,10 +14,10 @@ import 'package:google_fonts/google_fonts.dart';
 class AccountWidget extends StatefulWidget {
   const AccountWidget({
     Key key,
-    this.user,
+    this.username,
   }) : super(key: key);
 
-  final UsersRecord user;
+  final UsersRecord username;
 
   @override
   _AccountWidgetState createState() => _AccountWidgetState();
@@ -76,16 +77,21 @@ class _AccountWidgetState extends State<AccountWidget> {
                               mainAxisSize: MainAxisSize.max,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(
-                                  'User',
-                                  style: FlutterFlowTheme.of(context)
-                                      .title3
-                                      .override(
-                                        fontFamily: 'Roboto',
-                                        color: Colors.white,
-                                        fontSize: 24,
-                                        fontWeight: FontWeight.w500,
-                                      ),
+                                AuthUserStreamWidget(
+                                  child: Text(
+                                    valueOrDefault<String>(
+                                      currentUserDisplayName,
+                                      'User',
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .title3
+                                        .override(
+                                          fontFamily: 'Roboto',
+                                          color: Colors.white,
+                                          fontSize: 24,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                  ),
                                 ),
                               ],
                             ),

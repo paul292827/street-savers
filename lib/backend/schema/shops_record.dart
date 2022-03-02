@@ -23,22 +23,13 @@ abstract class ShopsRecord implements Built<ShopsRecord, ShopsRecordBuilder> {
   String get shopId;
 
   @nullable
-  @BuiltValueField(wireName: 'visited_at')
-  DateTime get visitedAt;
-
-  @nullable
-  @BuiltValueField(wireName: 'open_boolean')
-  BuiltList<bool> get openBoolean;
-
-  @nullable
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference get reference;
 
   static void _initializeBuilder(ShopsRecordBuilder builder) => builder
     ..address = ''
     ..name = ''
-    ..shopId = ''
-    ..openBoolean = ListBuilder();
+    ..shopId = '';
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('shops');
@@ -66,7 +57,6 @@ Map<String, dynamic> createShopsRecordData({
   LatLng location,
   String name,
   String shopId,
-  DateTime visitedAt,
 }) =>
     serializers.toFirestore(
         ShopsRecord.serializer,
@@ -74,6 +64,4 @@ Map<String, dynamic> createShopsRecordData({
           ..address = address
           ..location = location
           ..name = name
-          ..shopId = shopId
-          ..visitedAt = visitedAt
-          ..openBoolean = null));
+          ..shopId = shopId));
