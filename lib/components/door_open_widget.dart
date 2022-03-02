@@ -1,9 +1,7 @@
-import '../auth/auth_util.dart';
 import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -24,7 +22,8 @@ class _DoorOpenWidgetState extends State<DoorOpenWidget> {
   Widget build(BuildContext context) {
     return StreamBuilder<List<ShopsRecord>>(
       stream: queryShopsRecord(
-        singleRecord: true,
+        queryBuilder: (shopsRecord) =>
+            shopsRecord.where('shop_id', isEqualTo: widget.shop.shopId),
       ),
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
@@ -40,13 +39,6 @@ class _DoorOpenWidgetState extends State<DoorOpenWidget> {
           );
         }
         List<ShopsRecord> containerShopsRecordList = snapshot.data;
-        // Return an empty Container when the document does not exist.
-        if (snapshot.data.isEmpty) {
-          return Container();
-        }
-        final containerShopsRecord = containerShopsRecordList.isNotEmpty
-            ? containerShopsRecordList.first
-            : null;
         return Container(
           width: MediaQuery.of(context).size.width,
           height: 350,
@@ -89,7 +81,7 @@ class _DoorOpenWidgetState extends State<DoorOpenWidget> {
                                       0, 4, 16, 0),
                                   child: Text(
                                     valueOrDefault<String>(
-                                      containerShopsRecord.name,
+                                      widget.shop.name,
                                       'Shop',
                                     ),
                                     style: FlutterFlowTheme.of(context)
@@ -114,7 +106,7 @@ class _DoorOpenWidgetState extends State<DoorOpenWidget> {
                                       0, 8, 0, 0),
                                   child: Text(
                                     valueOrDefault<String>(
-                                      containerShopsRecord.address,
+                                      widget.shop.address,
                                       'address',
                                     ),
                                     style: FlutterFlowTheme.of(context)
@@ -137,123 +129,55 @@ class _DoorOpenWidgetState extends State<DoorOpenWidget> {
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
-                                StreamBuilder<List<UsersRecord>>(
-                                  stream: queryUsersRecord(
-                                    singleRecord: true,
-                                  ),
-                                  builder: (context, snapshot) {
-                                    // Customize what your widget looks like when it's loading.
-                                    if (!snapshot.hasData) {
-                                      return Center(
-                                        child: SizedBox(
-                                          width: 50,
-                                          height: 50,
-                                          child: CircularProgressIndicator(
-                                            color: Colors.white,
-                                          ),
-                                        ),
-                                      );
-                                    }
-                                    List<UsersRecord> buttonUsersRecordList =
-                                        snapshot.data;
-                                    // Return an empty Container when the document does not exist.
-                                    if (snapshot.data.isEmpty) {
-                                      return Container();
-                                    }
-                                    final buttonUsersRecord =
-                                        buttonUsersRecordList.isNotEmpty
-                                            ? buttonUsersRecordList.first
-                                            : null;
-                                    return FFButtonWidget(
-                                      onPressed: () async {
-                                        Navigator.pop(context);
-                                        final usersUpdateData = {
-                                          'count': FieldValue.increment(1),
-                                        };
-                                        await buttonUsersRecord.reference
-                                            .update(usersUpdateData);
-                                      },
-                                      text: 'Closed',
-                                      options: FFButtonOptions(
-                                        width: 150,
-                                        height: 50,
-                                        color: Color(0xFFD73737),
-                                        textStyle: FlutterFlowTheme.of(context)
-                                            .subtitle2
-                                            .override(
-                                              fontFamily: 'Lexend Deca',
-                                              color: Colors.white,
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.normal,
-                                            ),
-                                        elevation: 2,
-                                        borderSide: BorderSide(
-                                          color: Colors.transparent,
-                                          width: 1,
-                                        ),
-                                        borderRadius: 40,
-                                      ),
-                                    );
+                                FFButtonWidget(
+                                  onPressed: () async {
+                                    Navigator.pop(context);
                                   },
+                                  text: 'Closed',
+                                  options: FFButtonOptions(
+                                    width: 150,
+                                    height: 50,
+                                    color: Color(0xFFD73737),
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .subtitle2
+                                        .override(
+                                          fontFamily: 'Lexend Deca',
+                                          color: Colors.white,
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.normal,
+                                        ),
+                                    elevation: 2,
+                                    borderSide: BorderSide(
+                                      color: Colors.transparent,
+                                      width: 1,
+                                    ),
+                                    borderRadius: 40,
+                                  ),
                                 ),
-                                StreamBuilder<List<UsersRecord>>(
-                                  stream: queryUsersRecord(
-                                    singleRecord: true,
-                                  ),
-                                  builder: (context, snapshot) {
-                                    // Customize what your widget looks like when it's loading.
-                                    if (!snapshot.hasData) {
-                                      return Center(
-                                        child: SizedBox(
-                                          width: 50,
-                                          height: 50,
-                                          child: CircularProgressIndicator(
-                                            color: Colors.white,
-                                          ),
-                                        ),
-                                      );
-                                    }
-                                    List<UsersRecord> buttonUsersRecordList =
-                                        snapshot.data;
-                                    // Return an empty Container when the document does not exist.
-                                    if (snapshot.data.isEmpty) {
-                                      return Container();
-                                    }
-                                    final buttonUsersRecord =
-                                        buttonUsersRecordList.isNotEmpty
-                                            ? buttonUsersRecordList.first
-                                            : null;
-                                    return FFButtonWidget(
-                                      onPressed: () async {
-                                        Navigator.pop(context);
-                                        final usersUpdateData = {
-                                          'count': FieldValue.increment(1),
-                                        };
-                                        await buttonUsersRecord.reference
-                                            .update(usersUpdateData);
-                                      },
-                                      text: 'Open',
-                                      options: FFButtonOptions(
-                                        width: 150,
-                                        height: 50,
-                                        color: Color(0xFF8BC34A),
-                                        textStyle: FlutterFlowTheme.of(context)
-                                            .subtitle2
-                                            .override(
-                                              fontFamily: 'Lexend Deca',
-                                              color: Colors.white,
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.normal,
-                                            ),
-                                        elevation: 2,
-                                        borderSide: BorderSide(
-                                          color: Colors.transparent,
-                                          width: 1,
-                                        ),
-                                        borderRadius: 40,
-                                      ),
-                                    );
+                                FFButtonWidget(
+                                  onPressed: () async {
+                                    Navigator.pop(context);
                                   },
+                                  text: 'Open',
+                                  options: FFButtonOptions(
+                                    width: 150,
+                                    height: 50,
+                                    color: Color(0xFF8BC34A),
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .subtitle2
+                                        .override(
+                                          fontFamily: 'Lexend Deca',
+                                          color: Colors.white,
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.normal,
+                                        ),
+                                    elevation: 2,
+                                    borderSide: BorderSide(
+                                      color: Colors.transparent,
+                                      width: 1,
+                                    ),
+                                    borderRadius: 40,
+                                  ),
                                 ),
                               ],
                             ),

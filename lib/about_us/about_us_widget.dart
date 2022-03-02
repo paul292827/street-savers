@@ -73,7 +73,7 @@ class _AboutUsWidgetState extends State<AboutUsWidget> {
                               EdgeInsetsDirectional.fromSTEB(15, 65, 15, 0),
                           child: Image.asset(
                             'assets/images/Another_Logo.png',
-                            width: MediaQuery.of(context).size.width,
+                            width: 350,
                             height: 150,
                             fit: BoxFit.fitWidth,
                           ),

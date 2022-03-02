@@ -385,11 +385,13 @@ class _AccountWidgetState extends State<AccountWidget> {
                       children: [
                         FFButtonWidget(
                           onPressed: () async {
-                            await Navigator.push(
+                            await signOut();
+                            await Navigator.pushAndRemoveUntil(
                               context,
                               MaterialPageRoute(
                                 builder: (context) => LoginPageWidget(),
                               ),
+                              (r) => false,
                             );
                           },
                           text: 'Log Out',

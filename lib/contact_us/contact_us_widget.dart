@@ -37,7 +37,8 @@ class _ContactUsWidgetState extends State<ContactUsWidget> {
                               EdgeInsetsDirectional.fromSTEB(15, 40, 15, 0),
                           child: Image.asset(
                             'assets/images/Another_Logo.png',
-                            width: MediaQuery.of(context).size.width,
+                            width: 350,
+                            height: 150,
                             fit: BoxFit.fill,
                           ),
                         ),
