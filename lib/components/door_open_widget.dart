@@ -20,14 +20,10 @@ class DoorOpenWidget extends StatefulWidget {
 }
 
 class _DoorOpenWidgetState extends State<DoorOpenWidget> {
-  ShopsRecord closed;
-
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<List<ShopsRecord>>(
       stream: queryShopsRecord(
-        queryBuilder: (shopsRecord) => shopsRecord.where('location',
-            isEqualTo: widget.shop.location.toGeoPoint()),
         singleRecord: true,
       ),
       builder: (context, snapshot) {
@@ -117,7 +113,10 @@ class _DoorOpenWidgetState extends State<DoorOpenWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0, 8, 0, 0),
                                   child: Text(
-                                    'Select whether the shops door is open or closed',
+                                    valueOrDefault<String>(
+                                      containerShopsRecord.address,
+                                      'address',
+                                    ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyText1
                                         .override(
@@ -138,69 +137,123 @@ class _DoorOpenWidgetState extends State<DoorOpenWidget> {
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
-                                FFButtonWidget(
-                                  onPressed: () async {
-                                    Navigator.pop(context);
-                                    final shopsCreateData =
-                                        createShopsRecordData();
-                                    final shopsRecordReference =
-                                        ShopsRecord.collection.doc();
-                                    await shopsRecordReference
-                                        .set(shopsCreateData);
-                                    closed = ShopsRecord.getDocumentFromData(
-                                        shopsCreateData, shopsRecordReference);
-
-                                    setState(() {});
-                                  },
-                                  text: 'Closed',
-                                  options: FFButtonOptions(
-                                    width: 150,
-                                    height: 50,
-                                    color: Color(0xFFD73737),
-                                    textStyle: FlutterFlowTheme.of(context)
-                                        .subtitle2
-                                        .override(
-                                          fontFamily: 'Lexend Deca',
-                                          color: Colors.white,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.normal,
-                                        ),
-                                    elevation: 2,
-                                    borderSide: BorderSide(
-                                      color: Colors.transparent,
-                                      width: 1,
-                                    ),
-                                    borderRadius: 40,
+                                StreamBuilder<List<UsersRecord>>(
+                                  stream: queryUsersRecord(
+                                    singleRecord: true,
                                   ),
+                                  builder: (context, snapshot) {
+                                    // Customize what your widget looks like when it's loading.
+                                    if (!snapshot.hasData) {
+                                      return Center(
+                                        child: SizedBox(
+                                          width: 50,
+                                          height: 50,
+                                          child: CircularProgressIndicator(
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                      );
+                                    }
+                                    List<UsersRecord> buttonUsersRecordList =
+                                        snapshot.data;
+                                    // Return an empty Container when the document does not exist.
+                                    if (snapshot.data.isEmpty) {
+                                      return Container();
+                                    }
+                                    final buttonUsersRecord =
+                                        buttonUsersRecordList.isNotEmpty
+                                            ? buttonUsersRecordList.first
+                                            : null;
+                                    return FFButtonWidget(
+                                      onPressed: () async {
+                                        Navigator.pop(context);
+                                        final usersUpdateData = {
+                                          'count': FieldValue.increment(1),
+                                        };
+                                        await buttonUsersRecord.reference
+                                            .update(usersUpdateData);
+                                      },
+                                      text: 'Closed',
+                                      options: FFButtonOptions(
+                                        width: 150,
+                                        height: 50,
+                                        color: Color(0xFFD73737),
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .subtitle2
+                                            .override(
+                                              fontFamily: 'Lexend Deca',
+                                              color: Colors.white,
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.normal,
+                                            ),
+                                        elevation: 2,
+                                        borderSide: BorderSide(
+                                          color: Colors.transparent,
+                                          width: 1,
+                                        ),
+                                        borderRadius: 40,
+                                      ),
+                                    );
+                                  },
                                 ),
-                                FFButtonWidget(
-                                  onPressed: () async {
-                                    Navigator.pop(context);
-                                    final shopsUpdateData =
-                                        createShopsRecordData();
-                                    await widget.shop.reference
-                                        .update(shopsUpdateData);
-                                  },
-                                  text: 'Open',
-                                  options: FFButtonOptions(
-                                    width: 150,
-                                    height: 50,
-                                    color: Color(0xFF8BC34A),
-                                    textStyle: FlutterFlowTheme.of(context)
-                                        .subtitle2
-                                        .override(
-                                          fontFamily: 'Lexend Deca',
-                                          color: Colors.white,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.normal,
-                                        ),
-                                    elevation: 2,
-                                    borderSide: BorderSide(
-                                      color: Colors.transparent,
-                                      width: 1,
-                                    ),
-                                    borderRadius: 40,
+                                StreamBuilder<List<UsersRecord>>(
+                                  stream: queryUsersRecord(
+                                    singleRecord: true,
                                   ),
+                                  builder: (context, snapshot) {
+                                    // Customize what your widget looks like when it's loading.
+                                    if (!snapshot.hasData) {
+                                      return Center(
+                                        child: SizedBox(
+                                          width: 50,
+                                          height: 50,
+                                          child: CircularProgressIndicator(
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                      );
+                                    }
+                                    List<UsersRecord> buttonUsersRecordList =
+                                        snapshot.data;
+                                    // Return an empty Container when the document does not exist.
+                                    if (snapshot.data.isEmpty) {
+                                      return Container();
+                                    }
+                                    final buttonUsersRecord =
+                                        buttonUsersRecordList.isNotEmpty
+                                            ? buttonUsersRecordList.first
+                                            : null;
+                                    return FFButtonWidget(
+                                      onPressed: () async {
+                                        Navigator.pop(context);
+                                        final usersUpdateData = {
+                                          'count': FieldValue.increment(1),
+                                        };
+                                        await buttonUsersRecord.reference
+                                            .update(usersUpdateData);
+                                      },
+                                      text: 'Open',
+                                      options: FFButtonOptions(
+                                        width: 150,
+                                        height: 50,
+                                        color: Color(0xFF8BC34A),
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .subtitle2
+                                            .override(
+                                              fontFamily: 'Lexend Deca',
+                                              color: Colors.white,
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.normal,
+                                            ),
+                                        elevation: 2,
+                                        borderSide: BorderSide(
+                                          color: Colors.transparent,
+                                          width: 1,
+                                        ),
+                                        borderRadius: 40,
+                                      ),
+                                    );
+                                  },
                                 ),
                               ],
                             ),

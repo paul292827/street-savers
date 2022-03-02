@@ -38,8 +38,7 @@ class _ContactUsWidgetState extends State<ContactUsWidget> {
                           child: Image.asset(
                             'assets/images/Another_Logo.png',
                             width: MediaQuery.of(context).size.width,
-                            height: 150,
-                            fit: BoxFit.fitWidth,
+                            fit: BoxFit.fill,
                           ),
                         ),
                         Padding(
@@ -110,12 +109,8 @@ class _ContactUsWidgetState extends State<ContactUsWidget> {
                       padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
                       child: InkWell(
                         onTap: () async {
-                          await Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => ContactUsWidget(),
-                            ),
-                          );
+                          await launchURL(
+                              'https://www.instagram.com/street_savers/?hl=en');
                         },
                         child: ListTile(
                           title: Text(
@@ -141,48 +136,31 @@ class _ContactUsWidgetState extends State<ContactUsWidget> {
                     ),
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
-                      child: ListTile(
-                        title: Text(
-                          'Email us',
-                          style: FlutterFlowTheme.of(context).title3.override(
-                                fontFamily: 'Poppins',
-                                color: Color(0xFF189F19),
-                              ),
+                      child: InkWell(
+                        onTap: () async {
+                          await launchURL(
+                              'https://mail.google.com/mail/u/0/#inbox?compose=GTvVlcSPFdJkhjvGnKLDtDPwZRBSwLDvTBwPPBWTlspBCzPbXXRwWvngnPvgqnQjvmglcKqsXZcJD');
+                        },
+                        child: ListTile(
+                          title: Text(
+                            'Email us',
+                            style: FlutterFlowTheme.of(context).title3.override(
+                                  fontFamily: 'Poppins',
+                                  color: Color(0xFF189F19),
+                                ),
+                          ),
+                          subtitle: Text(
+                            'paullee2928@hotmail.com',
+                            style: FlutterFlowTheme.of(context).subtitle2,
+                          ),
+                          trailing: Icon(
+                            Icons.arrow_forward_ios,
+                            color: Color(0xFF303030),
+                            size: 20,
+                          ),
+                          tileColor: Color(0xFFF5F5F5),
+                          dense: false,
                         ),
-                        subtitle: Text(
-                          'paullee2928@hotmail.com',
-                          style: FlutterFlowTheme.of(context).subtitle2,
-                        ),
-                        trailing: Icon(
-                          Icons.arrow_forward_ios,
-                          color: Color(0xFF303030),
-                          size: 20,
-                        ),
-                        tileColor: Color(0xFFF5F5F5),
-                        dense: false,
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
-                      child: ListTile(
-                        title: Text(
-                          'Call us',
-                          style: FlutterFlowTheme.of(context).title3.override(
-                                fontFamily: 'Poppins',
-                                color: Color(0xFF189F19),
-                              ),
-                        ),
-                        subtitle: Text(
-                          '+353852427768',
-                          style: FlutterFlowTheme.of(context).subtitle2,
-                        ),
-                        trailing: Icon(
-                          Icons.arrow_forward_ios,
-                          color: Color(0xFF303030),
-                          size: 20,
-                        ),
-                        tileColor: Color(0xFFF5F5F5),
-                        dense: false,
                       ),
                     ),
                   ],
