@@ -327,16 +327,37 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     2, 2, 2, 2),
-                                            child: Container(
-                                              width: 50,
-                                              height: 50,
-                                              clipBehavior: Clip.antiAlias,
-                                              decoration: BoxDecoration(
-                                                shape: BoxShape.circle,
-                                              ),
-                                              child: SvgPicture.asset(
-                                                'assets/images/social_facebook.svg',
-                                                fit: BoxFit.none,
+                                            child: InkWell(
+                                              onTap: () async {
+                                                final user =
+                                                    await signInWithFacebook(
+                                                        context);
+                                                if (user == null) {
+                                                  return;
+                                                }
+                                                await Navigator
+                                                    .pushAndRemoveUntil(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        NavBarPage(
+                                                            initialPage:
+                                                                'HomePage'),
+                                                  ),
+                                                  (r) => false,
+                                                );
+                                              },
+                                              child: Container(
+                                                width: 50,
+                                                height: 50,
+                                                clipBehavior: Clip.antiAlias,
+                                                decoration: BoxDecoration(
+                                                  shape: BoxShape.circle,
+                                                ),
+                                                child: SvgPicture.asset(
+                                                  'assets/images/social_facebook.svg',
+                                                  fit: BoxFit.none,
+                                                ),
                                               ),
                                             ),
                                           ),

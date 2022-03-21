@@ -164,7 +164,7 @@ class _AccountWidgetState extends State<AccountWidget> {
                                 padding:
                                     EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
                                 child: Text(
-                                  'History',
+                                  'Profile Settings',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyText2
                                       .override(

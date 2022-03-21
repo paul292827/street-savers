@@ -98,13 +98,15 @@ class _AboutUsWidgetState extends State<AboutUsWidget> {
                           Expanded(
                             child: Padding(
                               padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 4, 0, 4),
+                                  EdgeInsetsDirectional.fromSTEB(5, 10, 5, 4),
                               child: Text(
-                                'Drag-and-drop builder and no-code configuration make it easy to add chat to your app. Professionally designed templates and custom styling will take your app to the next level.Drag-and-drop builder and no-code configuration make it easy to add chat to your app. Professionally designed templates and custom styling will take your app to the next level.Drag-and-drop builder and no-code configuration make it easy to add chat to your app. Professionally designed templates and custom styling will take your app to the next level.',
+                                'This research focusses on computational sustainability, a relatively new term which involves the use of computers and technologies to improve sustainable efforts. Heating in the industry sector accounts for 34% of national heat consumption in Ireland  and retailers having the door closed can save up to 50% of energy, therefore reducing the amount of energy consumed for heating purposes.\nThe goal of the project is to raise awareness in order to educate the public on the issue of energy being wasted from doors being left open and making them more aware of the impacts of energy waste. It is important to raise awareness for this issue because its generating unnecessary carbon emissions, especially in Ireland with its cold climate.\n\tThis goal will be achieved through the development of a mobile application. The app will rely on the engagement of users to gather observable data on shops leaving their door open, to which this data will be displayed publicly to raise awareness of the issue. The presentation of the data collected will lead to the completion of the goal to raise awareness of the issue. Educating the public of this issue and the implications of energy waste works towards creating a more sustainable future.\n',
                                 textAlign: TextAlign.start,
                                 style: GoogleFonts.getFont(
                                   'Lexend Deca',
-                                  color: Colors.white,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.normal,
+                                  fontSize: 16,
                                 ),
                               ),
                             ),

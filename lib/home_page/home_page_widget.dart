@@ -162,7 +162,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           markerColor: GoogleMarkerColor.violet,
                           mapType: MapType.normal,
                           style: GoogleMapStyle.standard,
-                          initialZoom: 14,
+                          initialZoom: 15,
                           allowInteraction: true,
                           allowZoom: true,
                           showZoomControls: false,

@@ -34,6 +34,11 @@ dependencies:
   firebase_auth: 3.2.0
   firebase_core: 1.12.0
   firebase_core_web: 1.5.4
+  flutter_facebook_auth:
+    git:
+      url: https://github.com/asmengistu/flutter-facebook-auth
+      ref: b65ffb049c9f1e2704adbeb1aa19c61693c946a5
+      path: facebook_auth
   flutter_svg: 0.22.0
   font_awesome_flutter: 8.11.0
   google_fonts: 2.1.0
