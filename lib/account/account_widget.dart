@@ -7,7 +7,7 @@ import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../informed_consent_form/informed_consent_form_widget.dart';
 import '../login_page/login_page_widget.dart';
-import '../main.dart';
+import '../profile_settings/profile_settings_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -135,8 +135,7 @@ class _AccountWidgetState extends State<AccountWidget> {
                         await Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) =>
-                                NavBarPage(initialPage: 'MostReported'),
+                            builder: (context) => ProfileSettingsWidget(),
                           ),
                         );
                       },
