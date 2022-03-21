@@ -142,6 +142,38 @@ class _MostReportedWidgetState extends State<MostReportedWidget> {
                                                     ),
                                                   ],
                                                 ),
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(0, 0, 10, 0),
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment.end,
+                                                    children: [
+                                                      Text(
+                                                        valueOrDefault<String>(
+                                                          columnShopsRecord
+                                                              .openCount
+                                                              .toString(),
+                                                          'count',
+                                                        ),
+                                                        textAlign:
+                                                            TextAlign.start,
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyText1
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Poppins',
+                                                              color:
+                                                                  Colors.black,
+                                                              fontSize: 18,
+                                                            ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
                                                 Row(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -164,36 +196,6 @@ class _MostReportedWidgetState extends State<MostReportedWidget> {
                                               ],
                                             ),
                                           ),
-                                        ),
-                                        Column(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.end,
-                                          children: [
-                                            Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Text(
-                                                  valueOrDefault<String>(
-                                                    columnShopsRecord.openCount
-                                                        .toString(),
-                                                    'count',
-                                                  ),
-                                                  textAlign: TextAlign.start,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyText1
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color: Colors.black,
-                                                        fontSize: 18,
-                                                      ),
-                                                ),
-                                              ],
-                                            ),
-                                          ],
                                         ),
                                       ],
                                     ),
