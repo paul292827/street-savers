@@ -4,14 +4,14 @@ import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class HistoryWidget extends StatefulWidget {
-  const HistoryWidget({Key key}) : super(key: key);
+class MostReportedWidget extends StatefulWidget {
+  const MostReportedWidget({Key key}) : super(key: key);
 
   @override
-  _HistoryWidgetState createState() => _HistoryWidgetState();
+  _MostReportedWidgetState createState() => _MostReportedWidgetState();
 }
 
-class _HistoryWidgetState extends State<HistoryWidget> {
+class _MostReportedWidgetState extends State<MostReportedWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -37,7 +37,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        'History',
+                        'Most Reported',
                         style: FlutterFlowTheme.of(context).bodyText1.override(
                               fontFamily: 'Poppins',
                               color: Colors.white,
@@ -49,8 +49,11 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                 ),
               ),
               Expanded(
-                child: StreamBuilder<List<UsersRecord>>(
-                  stream: queryUsersRecord(),
+                child: StreamBuilder<List<ShopsRecord>>(
+                  stream: queryShopsRecord(
+                    queryBuilder: (shopsRecord) =>
+                        shopsRecord.orderBy('open_count', descending: true),
+                  ),
                   builder: (context, snapshot) {
                     // Customize what your widget looks like when it's loading.
                     if (!snapshot.hasData) {
@@ -64,14 +67,14 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                         ),
                       );
                     }
-                    List<UsersRecord> columnUsersRecordList = snapshot.data;
+                    List<ShopsRecord> columnShopsRecordList = snapshot.data;
                     return SingleChildScrollView(
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
-                        children: List.generate(columnUsersRecordList.length,
+                        children: List.generate(columnShopsRecordList.length,
                             (columnIndex) {
-                          final columnUsersRecord =
-                              columnUsersRecordList[columnIndex];
+                          final columnShopsRecord =
+                              columnShopsRecordList[columnIndex];
                           return Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(0, 2, 0, 0),
                             child: Row(
@@ -120,10 +123,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
                                                   Text(
-                                                    columnUsersRecord.history
-                                                        .toList()
-                                                        .length
-                                                        .toString(),
+                                                    columnShopsRecord.name,
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .subtitle1
@@ -142,25 +142,57 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                                               Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
-                                                  Text(
-                                                    columnUsersRecord.history
-                                                        .toList()
-                                                        .length
-                                                        .toString(),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyText2
-                                                        .override(
-                                                          fontFamily:
-                                                              'Lexend Deca',
-                                                          color:
-                                                              Color(0xFF8B97A2),
-                                                          fontSize: 14,
-                                                          fontWeight:
-                                                              FontWeight.normal,
-                                                        ),
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(
+                                                                10, 0, 0, 0),
+                                                    child: Text(
+                                                      columnIndex.toString(),
+                                                      textAlign:
+                                                          TextAlign.start,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyText1
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            color: Colors.black,
+                                                          ),
+                                                    ),
                                                   ),
                                                 ],
+                                              ),
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(0, 0, 10, 0),
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.end,
+                                                  children: [
+                                                    Text(
+                                                      columnShopsRecord
+                                                          .closedCount
+                                                          .toString(),
+                                                      textAlign:
+                                                          TextAlign.start,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyText2
+                                                          .override(
+                                                            fontFamily:
+                                                                'Lexend Deca',
+                                                            color: Colors.black,
+                                                            fontSize: 14,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .normal,
+                                                          ),
+                                                    ),
+                                                  ],
+                                                ),
                                               ),
                                             ],
                                           ),

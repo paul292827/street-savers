@@ -136,7 +136,7 @@ class _AccountWidgetState extends State<AccountWidget> {
                           context,
                           MaterialPageRoute(
                             builder: (context) =>
-                                NavBarPage(initialPage: 'History'),
+                                NavBarPage(initialPage: 'MostReported'),
                           ),
                         );
                       },

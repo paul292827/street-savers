@@ -10,9 +10,6 @@ abstract class ShopsRecord implements Built<ShopsRecord, ShopsRecordBuilder> {
   static Serializer<ShopsRecord> get serializer => _$shopsRecordSerializer;
 
   @nullable
-  String get address;
-
-  @nullable
   LatLng get location;
 
   @nullable
@@ -23,13 +20,26 @@ abstract class ShopsRecord implements Built<ShopsRecord, ShopsRecordBuilder> {
   String get shopId;
 
   @nullable
+  String get address;
+
+  @nullable
+  @BuiltValueField(wireName: 'closed_count')
+  int get closedCount;
+
+  @nullable
+  @BuiltValueField(wireName: 'open_count')
+  int get openCount;
+
+  @nullable
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference get reference;
 
   static void _initializeBuilder(ShopsRecordBuilder builder) => builder
-    ..address = ''
     ..name = ''
-    ..shopId = '';
+    ..shopId = ''
+    ..address = ''
+    ..closedCount = 0
+    ..openCount = 0;
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('shops');
@@ -53,15 +63,19 @@ abstract class ShopsRecord implements Built<ShopsRecord, ShopsRecordBuilder> {
 }
 
 Map<String, dynamic> createShopsRecordData({
-  String address,
   LatLng location,
   String name,
   String shopId,
+  String address,
+  int closedCount,
+  int openCount,
 }) =>
     serializers.toFirestore(
         ShopsRecord.serializer,
         ShopsRecord((s) => s
-          ..address = address
           ..location = location
           ..name = name
-          ..shopId = shopId));
+          ..shopId = shopId
+          ..address = address
+          ..closedCount = closedCount
+          ..openCount = openCount));

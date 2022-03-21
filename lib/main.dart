@@ -5,14 +5,14 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'auth/firebase_user_provider.dart';
 import 'auth/auth_util.dart';
 
+import 'flutter_flow/flutter_flow_util.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
 import 'flutter_flow/internationalization.dart';
 import 'package:street_savers/login_page/login_page_widget.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'flutter_flow/flutter_flow_theme.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'home_page/home_page_widget.dart';
-import 'history/history_widget.dart';
+import 'most_reported/most_reported_widget.dart';
 import 'leaderboard/leaderboard_widget.dart';
 import 'account/account_widget.dart';
 
@@ -21,6 +21,7 @@ void main() async {
   await Firebase.initializeApp();
 
   await FlutterFlowTheme.initialize();
+
   runApp(MyApp());
 }
 
@@ -118,7 +119,7 @@ class _NavBarPageState extends State<NavBarPage> {
   Widget build(BuildContext context) {
     final tabs = {
       'HomePage': HomePageWidget(),
-      'History': HistoryWidget(),
+      'MostReported': MostReportedWidget(),
       'Leaderboard': LeaderboardWidget(),
       'Account': AccountWidget(),
     };
@@ -144,7 +145,7 @@ class _NavBarPageState extends State<NavBarPage> {
               FontAwesomeIcons.solidMap,
               size: 24,
             ),
-            label: '',
+            label: 'Home',
             tooltip: '',
           ),
           BottomNavigationBarItem(
@@ -156,7 +157,7 @@ class _NavBarPageState extends State<NavBarPage> {
               Icons.store_rounded,
               size: 32,
             ),
-            label: 'History',
+            label: 'Most Reported',
             tooltip: '',
           ),
           BottomNavigationBarItem(

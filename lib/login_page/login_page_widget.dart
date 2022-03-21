@@ -336,6 +336,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                               ),
                                               child: SvgPicture.asset(
                                                 'assets/images/social_facebook.svg',
+                                                fit: BoxFit.none,
                                               ),
                                             ),
                                           ),
@@ -385,6 +386,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                 ),
                                                 child: SvgPicture.asset(
                                                   'assets/images/social_GoogleWhite.svg',
+                                                  fit: BoxFit.none,
                                                 ),
                                               ),
                                             ),
@@ -432,6 +434,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                               ),
                                               child: SvgPicture.asset(
                                                 'assets/images/social_Apple.svg',
+                                                fit: BoxFit.none,
                                               ),
                                             ),
                                           ),
