@@ -172,21 +172,26 @@ class _MostReportedWidgetState extends State<MostReportedWidget> {
                                           crossAxisAlignment:
                                               CrossAxisAlignment.end,
                                           children: [
-                                            Text(
-                                              valueOrDefault<String>(
-                                                columnShopsRecord.openCount
-                                                    .toString(),
-                                                'count',
-                                              ),
-                                              textAlign: TextAlign.start,
-                                              style:
-                                                  FlutterFlowTheme.of(context)
+                                            Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Text(
+                                                  valueOrDefault<String>(
+                                                    columnShopsRecord.openCount
+                                                        .toString(),
+                                                    'count',
+                                                  ),
+                                                  textAlign: TextAlign.start,
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
                                                       .bodyText1
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         color: Colors.black,
                                                         fontSize: 18,
                                                       ),
+                                                ),
+                                              ],
                                             ),
                                           ],
                                         ),
