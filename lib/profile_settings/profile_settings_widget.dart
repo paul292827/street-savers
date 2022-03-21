@@ -305,7 +305,7 @@ class _ProfileSettingsWidgetState extends State<ProfileSettingsWidget> {
                                   children: [
                                     Text(
                                       valueOrDefault<String>(
-                                        widget.user.email,
+                                        currentUserEmail,
                                         'email',
                                       ),
                                       style: FlutterFlowTheme.of(context)
@@ -383,17 +383,19 @@ class _ProfileSettingsWidgetState extends State<ProfileSettingsWidget> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   crossAxisAlignment: CrossAxisAlignment.end,
                                   children: [
-                                    Text(
-                                      valueOrDefault<String>(
-                                        widget.user.displayName,
-                                        'username',
+                                    AuthUserStreamWidget(
+                                      child: Text(
+                                        valueOrDefault<String>(
+                                          currentUserDisplayName,
+                                          'username',
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyText1
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              color: Colors.black,
+                                            ),
                                       ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyText1
-                                          .override(
-                                            fontFamily: 'Poppins',
-                                            color: Colors.black,
-                                          ),
                                     ),
                                   ],
                                 ),
@@ -463,17 +465,19 @@ class _ProfileSettingsWidgetState extends State<ProfileSettingsWidget> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   crossAxisAlignment: CrossAxisAlignment.end,
                                   children: [
-                                    Text(
-                                      valueOrDefault<String>(
-                                        widget.user.count.toString(),
-                                        'count',
+                                    AuthUserStreamWidget(
+                                      child: Text(
+                                        valueOrDefault<String>(
+                                          currentUserDocument?.count.toString(),
+                                          'count',
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyText1
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              color: Colors.black,
+                                            ),
                                       ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyText1
-                                          .override(
-                                            fontFamily: 'Poppins',
-                                            color: Colors.black,
-                                          ),
                                     ),
                                   ],
                                 ),
