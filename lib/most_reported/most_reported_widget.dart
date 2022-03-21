@@ -144,12 +144,12 @@ class _MostReportedWidgetState extends State<MostReportedWidget> {
                                                 ),
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(0, 0, 10, 0),
+                                                      .fromSTEB(140, 0, 0, 0),
                                                   child: Row(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
                                                     mainAxisAlignment:
-                                                        MainAxisAlignment.end,
+                                                        MainAxisAlignment.start,
                                                     children: [
                                                       Text(
                                                         valueOrDefault<String>(
@@ -168,7 +168,7 @@ class _MostReportedWidgetState extends State<MostReportedWidget> {
                                                                   'Poppins',
                                                               color:
                                                                   Colors.black,
-                                                              fontSize: 18,
+                                                              fontSize: 14,
                                                             ),
                                                       ),
                                                     ],
