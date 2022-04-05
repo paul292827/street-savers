@@ -131,43 +131,12 @@ class _MostReportedWidgetState extends State<MostReportedWidget> {
                                                           fontFamily:
                                                               'Lexend Deca',
                                                           color: Colors.black,
-                                                          fontSize: 18,
+                                                          fontSize: 20,
                                                           fontWeight:
-                                                              FontWeight.w500,
+                                                              FontWeight.w600,
                                                         ),
                                                   ),
                                                 ],
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(300, 0, 0, 0),
-                                                child: Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.start,
-                                                  children: [
-                                                    Text(
-                                                      valueOrDefault<String>(
-                                                        columnShopsRecord
-                                                            .openCount
-                                                            .toString(),
-                                                        'count',
-                                                      ),
-                                                      textAlign:
-                                                          TextAlign.start,
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyText1
-                                                          .override(
-                                                            fontFamily:
-                                                                'Poppins',
-                                                            color: Colors.black,
-                                                            fontSize: 14,
-                                                          ),
-                                                    ),
-                                                  ],
-                                                ),
                                               ),
                                               Row(
                                                 mainAxisSize: MainAxisSize.max,
@@ -185,6 +154,8 @@ class _MostReportedWidgetState extends State<MostReportedWidget> {
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           color: Colors.black,
+                                                          fontWeight:
+                                                              FontWeight.w500,
                                                         ),
                                                   ),
                                                 ],
@@ -201,22 +172,26 @@ class _MostReportedWidgetState extends State<MostReportedWidget> {
                                           Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
-                                              Text(
-                                                valueOrDefault<String>(
-                                                  columnIndex.toString(),
-                                                  '1',
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(0, 0, 7, 0),
+                                                child: Text(
+                                                  valueOrDefault<String>(
+                                                    columnIndex.toString(),
+                                                    '1',
+                                                  ),
+                                                  textAlign: TextAlign.center,
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyText1
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color: Colors.black,
+                                                        fontSize: 18,
+                                                        fontWeight:
+                                                            FontWeight.w600,
+                                                      ),
                                                 ),
-                                                textAlign: TextAlign.center,
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyText1
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color: Colors.black,
-                                                          fontSize: 18,
-                                                          fontWeight:
-                                                              FontWeight.w600,
-                                                        ),
                                               ),
                                             ],
                                           ),
