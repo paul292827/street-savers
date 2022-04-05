@@ -120,7 +120,7 @@ class _DoorOpenWidgetState extends State<DoorOpenWidget> {
                                 final usersUpdateData = {
                                   'count': FieldValue.increment(1),
                                 };
-                                await widget.users.reference
+                                await currentUserReference
                                     .update(usersUpdateData);
 
                                 final shopsUpdateData = {
@@ -157,7 +157,7 @@ class _DoorOpenWidgetState extends State<DoorOpenWidget> {
                                 final usersUpdateData = {
                                   'count': FieldValue.increment(1),
                                 };
-                                await widget.users.reference
+                                await currentUserReference
                                     .update(usersUpdateData);
 
                                 final shopsUpdateData = {

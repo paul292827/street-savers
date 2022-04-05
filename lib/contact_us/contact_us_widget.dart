@@ -29,58 +29,75 @@ class _ContactUsWidgetState extends State<ContactUsWidget> {
               children: [
                 Column(
                   mainAxisSize: MainAxisSize.max,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Stack(
-                      children: [
-                        Padding(
-                          padding:
-                              EdgeInsetsDirectional.fromSTEB(15, 40, 15, 0),
-                          child: Image.asset(
-                            'assets/images/Another_Logo.png',
-                            width: 350,
-                            height: 150,
-                            fit: BoxFit.fill,
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(10, 40, 0, 0),
-                          child: FFButtonWidget(
-                            onPressed: () async {
-                              await Navigator.pushAndRemoveUntil(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) =>
-                                      NavBarPage(initialPage: 'Account'),
-                                ),
-                                (r) => false,
-                              );
-                            },
-                            text: '<  Back',
-                            options: FFButtonOptions(
-                              width: 100,
-                              height: 30,
-                              color: Color(0xFF6E983B),
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .subtitle2
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.white,
+                    Align(
+                      alignment: AlignmentDirectional(0, 0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Align(
+                            alignment: AlignmentDirectional(-0.93, -0.86),
+                            child: Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(10, 40, 0, 0),
+                              child: FFButtonWidget(
+                                onPressed: () async {
+                                  await Navigator.pushAndRemoveUntil(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          NavBarPage(initialPage: 'Account'),
+                                    ),
+                                    (r) => false,
+                                  );
+                                },
+                                text: '<  Back',
+                                options: FFButtonOptions(
+                                  width: 100,
+                                  height: 30,
+                                  color: Color(0xFF6E983B),
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .subtitle2
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        color: Colors.white,
+                                      ),
+                                  borderSide: BorderSide(
+                                    color: Colors.transparent,
+                                    width: 1,
                                   ),
-                              borderSide: BorderSide(
-                                color: Colors.transparent,
-                                width: 1,
+                                  borderRadius: 12,
+                                ),
                               ),
-                              borderRadius: 12,
                             ),
                           ),
+                        ],
+                      ),
+                    ),
+                    Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          'assets/images/Another_Logo.png',
+                          width: 350,
+                          height: 150,
+                          fit: BoxFit.fill,
                         ),
-                        Align(
-                          alignment: AlignmentDirectional(0, 0),
-                          child: Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 170, 0, 0),
+                      ],
+                    ),
+                    Align(
+                      alignment: AlignmentDirectional(0, 0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Align(
+                            alignment: AlignmentDirectional(0, 0),
                             child: Text(
                               'Contact Us',
+                              textAlign: TextAlign.center,
                               style: FlutterFlowTheme.of(context)
                                   .bodyText1
                                   .override(
@@ -90,8 +107,8 @@ class _ContactUsWidgetState extends State<ContactUsWidget> {
                                   ),
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 20),

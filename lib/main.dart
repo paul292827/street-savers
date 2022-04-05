@@ -143,7 +143,7 @@ class _NavBarPageState extends State<NavBarPage> {
             ),
             activeIcon: FaIcon(
               FontAwesomeIcons.solidMap,
-              size: 24,
+              size: 32,
             ),
             label: 'Home',
             tooltip: '',

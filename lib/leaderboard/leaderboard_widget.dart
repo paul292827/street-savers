@@ -132,13 +132,11 @@ class _LeaderboardWidgetState extends State<LeaderboardWidget> {
                                                             context)
                                                         .subtitle1
                                                         .override(
-                                                          fontFamily:
-                                                              'Lexend Deca',
-                                                          color:
-                                                              Color(0xFF15212B),
+                                                          fontFamily: 'Poppins',
+                                                          color: Colors.black,
                                                           fontSize: 18,
                                                           fontWeight:
-                                                              FontWeight.w500,
+                                                              FontWeight.w600,
                                                         ),
                                                   ),
                                                 ],
@@ -157,13 +155,11 @@ class _LeaderboardWidgetState extends State<LeaderboardWidget> {
                                                           context)
                                                       .bodyText2
                                                       .override(
-                                                        fontFamily:
-                                                            'Lexend Deca',
-                                                        color:
-                                                            Color(0xFF8B97A2),
+                                                        fontFamily: 'Poppins',
+                                                        color: Colors.black,
                                                         fontSize: 24,
                                                         fontWeight:
-                                                            FontWeight.normal,
+                                                            FontWeight.w600,
                                                       ),
                                                 ),
                                               ),

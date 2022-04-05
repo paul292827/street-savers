@@ -130,8 +130,7 @@ class _MostReportedWidgetState extends State<MostReportedWidget> {
                                                         .override(
                                                           fontFamily:
                                                               'Lexend Deca',
-                                                          color:
-                                                              Color(0xFF15212B),
+                                                          color: Colors.black,
                                                           fontSize: 18,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -182,13 +181,46 @@ class _MostReportedWidgetState extends State<MostReportedWidget> {
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyText1,
+                                                        .bodyText1
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: Colors.black,
+                                                        ),
                                                   ),
                                                 ],
                                               ),
                                             ],
                                           ),
                                         ),
+                                      ),
+                                      Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Text(
+                                                valueOrDefault<String>(
+                                                  columnIndex.toString(),
+                                                  '1',
+                                                ),
+                                                textAlign: TextAlign.center,
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyText1
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: Colors.black,
+                                                          fontSize: 18,
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                        ),
+                                              ),
+                                            ],
+                                          ),
+                                        ],
                                       ),
                                     ],
                                   ),
