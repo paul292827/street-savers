@@ -159,6 +159,7 @@ class _ProfileSettingsWidgetState extends State<ProfileSettingsWidget> {
                                 children: [
                                   Container(
                                     width: 180,
+                                    height: 40,
                                     decoration: BoxDecoration(),
                                     child: TextFormField(
                                       controller: textController,
@@ -199,7 +200,7 @@ class _ProfileSettingsWidgetState extends State<ProfileSettingsWidget> {
                             ),
                             Padding(
                               padding:
-                                  EdgeInsetsDirectional.fromSTEB(30, 0, 0, 0),
+                                  EdgeInsetsDirectional.fromSTEB(90, 0, 0, 0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -288,7 +289,7 @@ class _ProfileSettingsWidgetState extends State<ProfileSettingsWidget> {
                             ),
                             Padding(
                               padding:
-                                  EdgeInsetsDirectional.fromSTEB(60, 0, 0, 0),
+                                  EdgeInsetsDirectional.fromSTEB(90, 0, 0, 0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -359,7 +360,7 @@ class _ProfileSettingsWidgetState extends State<ProfileSettingsWidget> {
                             ),
                             Padding(
                               padding:
-                                  EdgeInsetsDirectional.fromSTEB(160, 0, 0, 0),
+                                  EdgeInsetsDirectional.fromSTEB(183, 0, 0, 0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -428,7 +429,7 @@ class _ProfileSettingsWidgetState extends State<ProfileSettingsWidget> {
                             ),
                             Padding(
                               padding:
-                                  EdgeInsetsDirectional.fromSTEB(90, 0, 0, 0),
+                                  EdgeInsetsDirectional.fromSTEB(115, 0, 0, 0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.center,

@@ -174,7 +174,7 @@ class _MostReportedWidgetState extends State<MostReportedWidget> {
                                             children: [
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(0, 0, 7, 0),
+                                                    .fromSTEB(0, 0, 10, 0),
                                                 child: Text(
                                                   valueOrDefault<String>(
                                                     columnIndex.toString(),
