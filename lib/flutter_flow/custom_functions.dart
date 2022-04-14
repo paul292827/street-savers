@@ -13,7 +13,7 @@ String openPercentage(
   int closedCount,
   int openCount,
 ) {
-  double value;
-  value = (openCount / (openCount + closedCount)) * 100;
+  int value;
+  value = ((openCount / (openCount + closedCount)) * 100).round();
   return '$value%';
 }
