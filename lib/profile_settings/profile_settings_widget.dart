@@ -276,7 +276,7 @@ class _ProfileSettingsWidgetState extends State<ProfileSettingsWidget> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Text(
-                                    'Change username',
+                                    'Username',
                                     style: FlutterFlowTheme.of(context)
                                         .bodyText1
                                         .override(
@@ -289,7 +289,7 @@ class _ProfileSettingsWidgetState extends State<ProfileSettingsWidget> {
                             ),
                             Padding(
                               padding:
-                                  EdgeInsetsDirectional.fromSTEB(90, 0, 0, 0),
+                                  EdgeInsetsDirectional.fromSTEB(145, 0, 0, 0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.center,
